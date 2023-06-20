@@ -1,17 +1,35 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./MyApp";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// Import the API and data functions
+import api from "./api";
+import data from "./data";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// Make the data available to the rest of the application
+const { previews, genres, shows } = data;
+
+// Render the application
+const MyApp = () => {
+  return (
+    <div>
+      <h1>Podcasts</h1>
+      <ul>
+        {previews.map((preview) => (
+          <li key={preview.id}>{preview.title}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+// Render the application
+ReactDOM.render(<MyApp />, document.getElementById("root"));
