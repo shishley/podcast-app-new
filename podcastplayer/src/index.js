@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./MyApp";
+import apps from "./MyApp";
 
 // Import the API and data functions
 import api from "./api";
